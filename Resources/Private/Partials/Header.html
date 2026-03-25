@@ -1,0 +1,103 @@
+
+        <f:cObject typoscriptObjectPath="lib.header" />
+
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+            <a href="/" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-primary me-3"></i>CakeZone</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto mx-lg-auto py-0">
+                    <f:render section="MainMenu" arguments="{_all}" />
+                </div>
+            </div>
+        </nav>
+
+<f:if condition="{breadcrumb -> f:count()} > 1">
+
+<div class="container-fluid bg-dark bg-img p-5 mb-5">
+    <div class="row">
+        <div class="col-12 text-center">
+
+        
+            <h1 class="display-4 text-uppercase text-white">
+                {data.title}
+            </h1>
+
+        
+            <f:for each="{breadcrumb}" as="item" iteration="i">
+
+                <f:if condition="{item.current}">
+                    <f:then>
+                        <span class="text-primary">{item.title}</span>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{i.isFirst}">
+                            <f:then>
+                                <a href="{item.link}" class="text-primary text-decoration-none">
+                                    {item.title}
+                                </a>
+                            </f:then>
+                            <f:else>
+                                <span class="text-primary">{item.title}</span>
+                            </f:else>
+                        </f:if>
+                        <i class="far fa-square text-primary px-2"></i>
+                    </f:else>
+                </f:if>
+            
+            </f:for>
+
+        </div>
+    </div>
+</div>
+
+</f:if>
+<f:section name="MainMenu">
+
+<f:for each="{MainMenu}" as="item">
+
+    <f:if condition="{item.children}">
+        <f:then>
+
+            <div class="nav-item dropdown 
+                 {f:if(condition: item.active, then: 'active')}
+                 {f:if(condition: item.current, then: 'active')}">
+
+                <a class="nav-link dropdown-toggle"
+                   href="{item.link}"
+                   data-bs-toggle="dropdown">{item.title}</a>
+
+                <div class="dropdown-menu">
+
+                    <f:for each="{item.children}" as="sub">
+
+                        <a href="{sub.link}"
+                           class="dropdown-item 
+                           {f:if(condition: sub.current, then: 'active')}">
+                            {sub.title}
+                        </a>
+
+                    </f:for>
+
+                </div>
+            </div>
+
+        </f:then>
+
+        <f:else>
+
+            <a class="nav-item nav-link 
+               {f:if(condition: item.current, then: 'active')}"
+               href="{item.link}">
+                {item.title}
+            </a>
+
+        </f:else>
+    </f:if>
+
+</f:for>
+
+</f:section>

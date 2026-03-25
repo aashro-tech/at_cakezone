@@ -1,0 +1,22 @@
+name: cakezone/counter-section
+typeName: cakezone_countersection
+group: default
+prefixFields: false
+fields:
+  - identifier: collection
+    type: Collection
+    label: 'Counter Items'
+    fields:
+      - identifier: icon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Icon'
+
+      - identifier: details
+        type: Textarea
+        label: 'Counter Details'
+        enableRichtext: true
+        richtextConfiguration: default

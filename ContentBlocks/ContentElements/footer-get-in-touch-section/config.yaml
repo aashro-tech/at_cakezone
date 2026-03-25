@@ -1,0 +1,48 @@
+name: cakezone/footer-get-in-touch-section
+typeName: cakezone_footergetintouchsection
+group: default
+prefixFields: false
+fields:
+  - identifier: title
+    type: Text
+    label: 'Section Title'
+
+  - identifier: contact_details
+    type: Collection
+    label: 'Contact Details'
+    fields:
+      - identifier: palette_1
+        type: Palette
+        label: 'Contact Item'
+        fields:
+          - identifier: icon
+            type: File
+            extendedPalette: false
+            minitems: 0
+            maxitems: 1
+            allowed: common-image-types
+            label: 'Icon'
+
+          - identifier: detail
+            type: Text
+            label: 'Contact Text'
+
+  - identifier: social_media
+    type: Collection
+    label: 'Social Media Links'
+    fields:
+      - identifier: palette_1
+        type: Palette
+        label: 'Social Media Item'
+        fields:
+          - identifier: media_icon
+            type: File
+            extendedPalette: false
+            minitems: 0
+            maxitems: 1
+            allowed: common-image-types
+            label: 'Social Media Icon Class'
+
+          - identifier: social_media_link
+            type: Link
+            label: 'Social Media URL'

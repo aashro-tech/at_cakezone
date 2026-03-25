@@ -1,0 +1,34 @@
+name: cakezone/testmonial-section
+typeName: cakezone_testmonialsection
+group: default
+prefixFields: false
+fields:
+  - identifier: section-title
+    type: Textarea
+    label: 'Section Title'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: testmonial_item
+    type: Collection
+    label: 'Testimonial Items'
+    fields:
+      - identifier: image
+        type: File
+        label: 'Client Image'
+        extendedPalette: false
+        minitems: 1
+        maxitems: 1
+        allowed: common-image-types
+
+      - identifier: client_details
+        type: Textarea
+        label: 'Client Details'
+        enableRichtext: true
+        richtextConfiguration: default
+
+      - identifier: details
+        type: Textarea
+        label: 'Testimonial Text'
+        enableRichtext: true
+        richtextConfiguration: default

@@ -1,0 +1,121 @@
+# Load default processing options
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    stylesSet:
+      - { name: "heading h1", element: "h1", attributes: {'class': 'm-0 text-uppercase text-white'} }
+      - { name: "Lead", element: "p", attributes: {'class': 'lead'} }
+      - { name: "H2 with class h1", element: "h2", attributes: {'class': 'h1'} }
+      - { name: "paragraph with content", element: "p", attributes: {'class': 'small'} }
+      - { name: "br new line", element: "br", attributes: {'class': 'mobile-only'} }
+      - { name: "List", element: "ul", attributes: {'class': 'lined-list'} }
+      - { name: "caps", element: "span", attributes: {'class': 'caps'} }
+      - { name: "Paragraph with sub-header", element: "p", attributes: {'class': 'sub-header'} }
+      - { name: "Sub-paragraph", element: "p", attributes: {'class': 'fst-italic'} }
+      - { name: "font-secondary", element: "h1", attributes: {'class': 'font-secondary text-primary mb-4'} }
+      - { name: "font-secondary", element: "h2", attributes: {'class': 'font-secondary text-primary mb-4'} }
+      - { name: "section-title h2", element: "h2", attributes: {'class': 'text-primary font-secondary'} }
+      - { name: "section-title h1", element: "h1", attributes: {'class': 'display-4 text-uppercase'} }
+      - { name: "display-1 text-uppercase text-white mb-4", element: "h1", attributes: {'class': 'display-1 text-uppercase text-white mb-4'} }
+      - { name: "text-uppercase text-white", element: "h1", attributes: {'class': 'text-uppercase text-white'} }
+      - { name: "text-uppercase", element: "h4", attributes: {'class': 'text-uppercase'} }
+      - { name: "mb-4", element: "h4", attributes: {'class': 'mb-4'} }
+      - { name: "mb-0", element: "p", attributes: {'class': 'mb-0'} }
+      - { name: "mb-5", element: "p", attributes: {'class': 'mb-5'} }
+      - { name: "text-uppercase", element: "h5", attributes: {'class': 'text-uppercase'} }
+      - { name: "counter-h6", element: "h6", attributes: {'class': 'text-primary text-uppercase'} }
+      - { name: "text-uppercase my-2", element: "h6", attributes: {'class': 'text-uppercase my-2'} }
+      - { name: "price", element: "h4", attributes: {'class': 'bg-dark text-primary p-2 m-0'} }
+      - { name: "text-uppercase mb-3", element: "h4", attributes: {'class': 'text-uppercase mb-3'} }
+      - { name: "read-more_link", element: "a", attributes: {'class': 'text-uppercase text-dark'} }
+      - { name: "btn btn-primary border-inner py-3 px-5", element: "a", attributes: {'class': 'btn btn-primary border-inner py-3 px-5'} }
+      - { name: "btn btn-dark border-inner py-3 px-5", element: "a", attributes: {'class': 'btn btn-dark border-inner py-3 px-5'} }
+      - { name: "text-uppercase text-light mb-4", element: "h1", attributes: {'class': 'text-uppercase text-light mb-4'} }
+      - { name: "display-5 text-white mb-0", element: "h1", attributes: {'class': 'display-5 text-white mb-0'} }
+      - { name: "text-uppercase text-primary", element: "h4", attributes: {'class': 'text-uppercase text-primary'} }
+      - { name: "testmonial-h4", element: "h4", attributes: {'class': 'text-primary text-uppercase mb-1'} }
+      - { name: "mt-3", element: "p", attributes: {'class': 'mt-3'} }
+      - { name: "text-white m-0", element: "p", attributes: {'class': 'text-white m-0'} }
+      - { name: "copyright link", element: "a", attributes: {'class': 'text-white border-bottom'} }
+
+    format_tags: "p;h1;h2;h3;h4;h5;h6;pre;span;strong"
+    format_span: { name : 'Span', element : 'span'}
+    format_strong: { name : 'Strong', element : 'strong'}
+    toolbarGroups:
+      - { name: clipboard, groups: [clipboard, undo] }
+      - { name: editing, groups: [find, selection, spellchecker] }
+      - { name: links }
+      - { name: insert }
+      - { name: tools }
+      - { name: table }
+      - { name: tabletools }
+      - { name: document, groups: [ mode, document, doctools ] }
+      - { name: others }
+      - "/"
+      - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align, bidi ] }
+      - { name: specialcharacters, groups: [ insertcharacters ] }
+      - "/"
+      - { name: styles }
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+    extraPlugins:
+      - justify
+      - font
+      - find
+      - bidi
+      - selectall
+      - autolink
+    extraAllowedContent:
+      - span
+      - strong
+    removePlugins:
+      - null
+    removeButtons:
+
+# Allow s and u tag
+processing:
+  allowTags:
+    - s
+    - u
+    - span
+    - strong
+  HTMLparser_db:
+    tags:
+      span:
+        rmTagIfNoAttrib: false
+      strong:
+        rmTagIfNoAttrib: false
+# Anchor class
+classesAnchor:
+  page:
+    class: 'link-page'
+    type: 'page'
+  folder:
+    class: 'link-folder'
+    type: 'folder'
+  file:
+    class: 'link-file'
+    type: 'file'
+  external:
+    class: 'link-external'
+    type: 'url'
+  mail:
+    class: 'link-mail'
+    type: 'mail'
+
+# Custom class
+buttons:
+  link:
+    properties:
+      class:
+        allowedClasses: 'link-arrow, link-page, link-folder, link-file, link-external, link-mail'

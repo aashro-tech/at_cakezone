@@ -1,0 +1,82 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.section-title} || {data.profile_picture}">
+
+    <div class="container-fluid py-5">
+        <div class="container">
+
+            <f:if condition="{data.section-title}">
+                <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+                    {data.section-title -> f:format.raw()}
+                </div>
+            </f:if>
+
+            <f:if condition="{data.profile_picture}">
+                <div class="row g-5">
+
+                    <f:for each="{data.profile_picture}" as="profile_picture">
+
+                        <f:if condition="{profile_picture.image.0} || {profile_picture.details}">
+                            <div class="col-lg-4 col-md-6">
+
+                                <div class="team-item">
+                                    <div class="position-relative overflow-hidden">
+
+                                        <f:if condition="{profile_picture.image.0}">
+                                            <f:image image="{profile_picture.image.0}"
+                                                class="img-fluid w-100"
+                                                maxWidth="490"
+                                                alt="" />
+                                        </f:if>
+
+                                        <f:if condition="{profile_picture.social_media}">
+                                            <div class="team-overlay w-100 h-100 position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center">
+                                                <div class="d-flex align-items-center justify-content-start">
+
+                                                    <f:for each="{profile_picture.social_media}" as="social_media">
+
+                                                        <f:if condition="{social_media.social_media_link}">
+                                                            <f:link.typolink
+                                                                parameter="{social_media.social_media_link}"
+                                                                target="_blank"
+                                                                class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 mx-1">
+
+                                                                <f:if condition="{social_media.media_icon.0}">
+                                                                        <f:image image="{social_media.media_icon.0}" width="18" height="18" />
+                                                                </f:if>
+
+                                                            </f:link.typolink>
+                                                        </f:if>
+
+                                                    </f:for>
+
+                                                </div>
+                                            </div>
+                                        </f:if>
+
+                                    </div>
+
+                                    <f:if condition="{profile_picture.details}">
+                                        <div class="bg-dark border-inner text-center p-4">
+                                            {profile_picture.details -> f:format.raw()}
+                                        </div>
+                                    </f:if>
+
+                                </div>
+
+                            </div>
+                        </f:if>
+
+                    </f:for>
+
+                </div>
+            </f:if>
+
+        </div>
+    </div>
+
+</f:if>
+
+</html>

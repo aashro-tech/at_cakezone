@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="plaintext"
+          original="labels.xlf"
+          source-language="en"
+          date="2026-02-23T00:00:00+00:00"
+          product-name="cakezone/footer-quick-link-section">
+        <header/>
+        <body>
+            <trans-unit id="title">
+                <source>CakeZone – Footer Quick Links Content Element</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Displays a Quick Links section in the footer containing navigation links to important pages such as About Us, Services, Contact, and other key areas of the CakeZone website.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

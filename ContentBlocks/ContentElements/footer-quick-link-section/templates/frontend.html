@@ -1,0 +1,31 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:if condition="{data.title} || {data.quick_details}">
+
+    <f:if condition="{data.title}">
+        <h4 class="text-primary text-uppercase mb-4">
+            {data.title}
+        </h4>
+    </f:if>
+
+    <f:if condition="{data.quick_details}">
+        <div class="d-flex flex-column justify-content-start gap-2">
+
+            <f:for each="{data.quick_details}" as="data_item">
+
+                <f:if condition="{data_item.link} && {data_item.menus}">
+                    <f:link.typolink parameter="{data_item.link}" class="text-secondary">
+                        <i class="bi bi-arrow-right text-primary me-2"></i>
+                        {data_item.menus}
+                    </f:link.typolink>
+                </f:if>
+
+            </f:for>
+
+        </div>
+    </f:if>
+
+</f:if>
+
+</html>

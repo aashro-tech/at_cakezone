@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.image.0} || {data.textarea} || {data.url-link} || {data.url_video}">
+
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header"
+     style="background-image: url('{f:uri.image(image: data.image.0, maxWidth: 1915)}');">
+
+        <div class="container py-5">
+            <div class="row justify-content-start">
+
+                <f:if condition="{data.textarea} || {data.url-link} || {data.url_video}">
+                    <div class="col-lg-8 text-center text-lg-start">
+
+                        <f:if condition="{data.textarea}">
+                            {data.textarea -> f:format.html()}
+                        </f:if>
+
+                        <f:if condition="{data.url-link} || {data.url_video} || {data.text-video}">
+                            <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+
+                                <f:if condition="{data.url-link} && {data.text-link}">
+                                    <f:link.typolink parameter="{data.url-link}"
+                                        class="btn btn-primary border-inner py-3 px-5 me-5">
+                                        {data.text-link}
+                                    </f:link.typolink>
+                                </f:if>
+
+                                <f:if condition="{data.url_video}">
+                                    <button type="button"
+                                        class="btn-play"
+                                        data-bs-toggle="modal"
+                                        data-src="{f:uri.typolink(parameter:data.url_video)}?autoplay=1&mute=1"
+                                        data-bs-target="#videoModal">
+                                        <span></span>
+                                    </button>
+                                </f:if>
+
+                                <f:if condition="{data.text-video}">
+                                    <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">
+                                        {data.text-video}
+                                    </h5>
+                                </f:if>
+
+                            </div>
+                        </f:if>
+
+                    </div>
+                </f:if>
+
+            </div>
+        </div>
+    </div>
+
+</f:if>
+
+
+<f:if condition="{data.url_video}">
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Youtube Video</h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <f:if condition="{data.url_video.0.extension} == 'youtube'">
+                            <f:then>
+                                <f:asset.script identifier="identifier123">
+                                    $(document).ready(function () {
+                                        $('.youtube-wrapper').each(function () {
+                                            var videoUrl = $(this).data('url');
+                                            var videoId = '';
+
+                                            // Extract video ID from the URL
+                                            if (videoUrl.includes('watch?v=')) {
+                                                videoId = videoUrl.split('watch?v=')[1].split('&')[0];
+                                            } else if (videoUrl.includes('youtu.be/')) {
+                                                videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
+                                            }
+
+                                            if (videoId) {
+                                                var iframe = `<iframe 
+                                                    class="embed-responsive-item"
+                                                    src="https://www.youtube.com/embed/${videoId}"
+                                                    title="YouTube video player"
+                                                    frameborder="1"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
+                                                    allowfullscreen>
+                                                </iframe>`;
+                                                $(this).html(iframe);
+                                            }
+                                        });
+                                    });
+                                </f:asset.script>
+                                <div class="video" id="myVideo">
+                                    <div class="youtube-wrapper" data-url="{data.url_video.0.publicUrl}"></div>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                <video id="myVideo" controls>
+                                    <source src="{data.url_video.0.publicUrl}" type="video/mp4">
+                                </video>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</f:if>
+</html>

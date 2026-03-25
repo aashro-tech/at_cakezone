@@ -1,0 +1,5 @@
+# Includes EXT:Form Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:at_cakezone/Configuration/TypoScript/Extensions/Form/" extensions="typoscript">
+
+# Includes Page Configuration
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:at_cakezone/Configuration/TypoScript/Page" extensions="typoscript">

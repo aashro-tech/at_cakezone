@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:if condition="{data.title} || {data.details}">
+
+    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary border-inner p-4">
+
+        <f:if condition="{data.title}">
+            
+            <f:if condition="{data.url}">
+                <f:then>
+                    <f:link.typolink parameter="{data.url}" class="navbar-brand">
+                        <h1 class="m-0 text-uppercase text-white">
+                            <f:if condition="{data.icon.0}"><f:image image="{data.icon.0}" width="35" height="40" class="me-3"/></f:if>{data.title}
+                        </h1>
+                    </f:link.typolink>
+                </f:then>
+
+                <f:else>
+                    <h1 class="m-0 text-uppercase text-white">
+                        <f:if condition="{data.icon.0}"><f:image image="{data.icon.0}" width="35" height="40" class="me-3"/></f:if>{data.title}
+                    </h1>
+                </f:else>
+            </f:if>
+
+        </f:if>
+
+        <f:if condition="{data.details}">
+            {data.details -> f:format.html()}
+        </f:if>
+
+    </div>
+
+</f:if>
+</html>

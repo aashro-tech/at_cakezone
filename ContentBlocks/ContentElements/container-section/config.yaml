@@ -1,0 +1,44 @@
+name: cakezone/container-section
+typeName: cakezone_containersection
+group: default
+prefixFields: false
+fields:
+  - identifier: textarea
+    type: Textarea
+    label: Section Content
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: button_palette
+    type: Palette
+    label: Button
+    fields:
+      - identifier: text-link
+        type: Text
+        label: Button Text
+      - identifier: url-link
+        type: Link
+        label: Button URL
+
+  - identifier: video_palette
+    type: Palette
+    label: Video
+    description: Add a video label and link
+    fields:
+      - identifier: text-video
+        type: Text
+        label: Video Text
+      - identifier: url_video
+        label: Video URL
+        type: File
+        allowed: common-media-types
+        minitems: 1
+        maxitems: 1
+
+  - identifier: image
+    type: File
+    label: Section Image
+    extendedPalette: false
+    minitems: 1
+    maxitems: 1
+    allowed: common-image-types

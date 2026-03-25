@@ -1,0 +1,60 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:if condition="{data.title} || {data.contact_details} || {data.social_media}">
+
+    <f:if condition="{data.title}">
+        <h4 class="text-primary text-uppercase mb-4">
+            {data.title}
+        </h4>
+    </f:if>
+
+    <f:if condition="{data.contact_details}">
+        <f:for each="{data.contact_details}" as="data_item">
+
+            <f:if condition="{data_item.detail}">
+                <div class="d-flex mb-2">
+
+                    <f:if condition="{data_item.icon.0}">
+                        <f:image image="{data_item.icon.0}" width="16" height="24" class="me-2" />
+                    </f:if>
+
+                    <f:if condition="{data_item.detail}">
+                        <p class="mb-0">{data_item.detail}</p>
+                    </f:if>
+
+                </div>
+            </f:if>
+
+        </f:for>
+    </f:if>
+
+    <f:if condition="{data.social_media}">
+
+        <f:if condition="{data.social_media -> f:count()}">
+            <div class="d-flex mt-4">
+
+                <f:for each="{data.social_media}" as="data_item">
+
+                    <f:if condition="{data_item.social_media_link}">
+                        <f:link.typolink
+                            parameter="{data_item.social_media_link}"
+                            class="btn btn-lg btn-primary btn-lg-square border-inner rounded-0 me-2">
+
+                        <f:if condition="{data_item.media_icon.0}">
+                            <f:image image="{data_item.media_icon.0}" width="20" height="20" />
+                        </f:if>
+
+                        </f:link.typolink>
+                    </f:if>
+
+                </f:for>
+
+            </div>
+        </f:if>
+
+    </f:if>
+
+</f:if>
+
+</html>

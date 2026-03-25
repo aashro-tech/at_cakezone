@@ -1,0 +1,56 @@
+name: cakezone/header-section
+typeName: cakezone_headersection
+group: default
+prefixFields: false
+fields:
+  - identifier: palette_email
+    type: Palette
+    label: 'Email Address'
+    fields:
+      - identifier: emailicon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Email Icon'
+
+      - identifier: email_id
+        type: Email
+        label: 'Email ID'
+
+  - identifier: palette_heading
+    type: Palette
+    label: 'Header Heading'
+    fields:
+      - identifier: headingicon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Heading Icon'
+
+      - identifier: heading_label
+        type: Text
+        label: 'Heading Text'
+
+      - identifier: heading_link
+        type: Link
+        label: 'Heading Link'
+
+  - identifier: palette_number
+    type: Palette
+    label: 'Contact Number'
+    fields:
+      - identifier: contacticon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Contact Icon'
+
+      - identifier: contact_label
+        type: Text
+        label: 'Contact Number'

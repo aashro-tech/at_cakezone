@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{formConfiguration}">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+    <formvh:render overrideConfiguration="{formConfiguration}" />
+    <f:flashMessages />
+        </div>
+    </div>
+</f:if>
+</html>

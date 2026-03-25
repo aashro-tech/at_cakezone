@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="plaintext"
+          original="labels.xlf"
+          source-language="en"
+          date="2026-02-23T00:00:00+00:00"
+          product-name="cakezone/footer-get-in-touch-section">
+        <header/>
+        <body>
+            <trans-unit id="title">
+                <source>CakeZone – Footer Get in Touch Content Element</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Displays a “Get in Touch” section in the footer including contact details such as address, phone number, email, and social media links for the CakeZone website.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

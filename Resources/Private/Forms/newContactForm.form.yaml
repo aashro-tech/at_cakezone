@@ -1,0 +1,72 @@
+
+renderingOptions:
+  submitButtonLabel: 'Send Message'
+type: Form
+identifier: newContactForm
+label: NewContactForm
+prototypeName: standard
+finishers:
+  -
+    options:
+      message: 'Your Message has been send !!!! Thank you.... Have a Nice Day'
+      contentElementUid: ''
+    identifier: Confirmation
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    label: ''
+    renderables:
+      -
+        defaultValue: ''
+        type: Text
+        identifier: text-1
+        label: ''
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: 'Your Name'
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Email
+        identifier: email-1
+        label: ''
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: 'Your Email'
+            required: required
+        validators:
+          -
+            identifier: EmailAddress
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Text
+        identifier: text-2
+        label: ''
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: Subject
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        type: Textarea
+        identifier: textarea-1
+        label: ''
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: Message
+            required: required
+        validators:
+          -
+            identifier: NotEmpty

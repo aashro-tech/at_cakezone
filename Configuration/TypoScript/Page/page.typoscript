@@ -1,0 +1,168 @@
+################
+### CONSTANT ###
+################
+
+plugin {
+    at_cakezone {
+        settings {
+            logo = {$at_cakezone.website.settings.logo}
+            rootpage = {$at_cakezone.website.settings.rootpage}
+            copyright = {$at_cakezone.website.settings.copyright}
+            sitelink = {$at_cakezone.website.settings.sitelink}
+        }
+    }
+}
+
+########################
+### MAIN PAGE OBJECT ###
+########################
+
+page = PAGE
+page {
+
+    // Set default page typenum
+    typeNum = 0
+
+    // Setup favion
+    shortcutIcon = {$at_cakezone.website.settings.favicon}
+
+    // Set viewport
+    meta {
+        viewport = width=device-width, initial-scale=1.0
+    }
+
+    headerData{
+        10 = TEXT
+        10.value{
+            <meta charset="utf-8">
+            <title>CakeZone - Cake Shop Website Template </title>
+
+            <meta content="width=device-width, initial-scale=1.0" name="viewport">
+            <meta content="Free HTML Templates" name="keywords">
+            <meta content="Free HTML Templates" name="description">
+        }
+    }
+
+    // Initiate all the css-together
+    includeCSS {
+        10 =  https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap
+        40 =  https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Oswald:wght@500;600;700&family=Pacifico&display=swap
+        50 =  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css
+        60 =  https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css
+        70 =  EXT:at_cakezone/Resources/Public/stylesheet/owl.carousel.min.css
+        80 =  EXT:at_cakezone/Resources/Public/stylesheet/bootstrap.min.css
+        90 =  EXT:at_cakezone/Resources/Public/stylesheet/style.css
+    }
+
+    // Additional header links
+    config.additionalHeaders {
+      10.header = Content-Security-Policy:
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://www.youtube.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        frame-src https://www.youtube.com;
+    }
+
+        // Initiate all the js-together
+    includeJSFooter {
+        40 = https://code.jquery.com/jquery-3.4.1.min.js
+        50 = https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js
+        70 = EXT:at_cakezone/Resources/Public/javascript/easing.min.js
+        80 = EXT:at_cakezone/Resources/Public/javascript/waypoints.min.js
+        90 = EXT:at_cakezone/Resources/Public/javascript/counterup.min.js
+        110 = EXT:at_cakezone/Resources/Public/javascript/owl.carousel.min.js
+        120 = EXT:at_cakezone/Resources/Public/javascript/main.js
+    }
+
+    // Let's start fluid_styled_content
+    10 = FLUIDTEMPLATE
+    10 {
+        layoutRootPath = {$at_cakezone.website.paths.layoutRootPath}
+        partialRootPath = {$at_cakezone.website.paths.partialRootPath}
+        templateRootPath = {$at_cakezone.website.paths.templateRootPath}
+
+        // Let's automatically choose backend layout and template
+        file.stdWrap.cObject = CASE
+        file.stdWrap.cObject {
+            key {
+                data = levelfield:-1, backend_layout_next_level, slide
+                override.field = backend_layout
+            }
+
+            default = TEXT
+            default.value = {$at_cakezone.website.paths.templateRootPath}Default.html
+
+            pagets__contact = TEXT
+            pagets__contact.value = {$at_cakezone.website.paths.templateRootPath}Contact.html
+
+            pagets__content = TEXT
+            pagets__content.value = {$at_cakezone.website.paths.templateRootPath}Content.html
+        }
+
+        settings < plugin.at_cakezone.settings
+
+        // Generate menu with DataProcessing
+        dataProcessing {
+
+            // Main menu
+            101 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            101 {
+                levels = 5
+                special = directory
+                special.value = {$at_cakezone.website.settings.main_menu}
+                expandAll = 1
+                includeSpacer = 1
+                as = MainMenu
+            }
+            120 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            120 {
+              special = rootline
+              special.range = 0|-1
+              as = breadcrumb
+            }
+            
+        }
+    }
+}
+
+#########################
+### GLOBAL LIB OBJECT ###
+#########################
+
+lib {
+    // Define default content
+    content = CONTENT
+    content < styles.content.get
+
+    header < lib.content
+    header.select.where = colPos = 0
+    header.select.pidInList = 1
+
+    headerContent < lib.content
+    headerContent.select.where = colPos = 1
+
+    FooterPart1 < lib.content
+    FooterPart1.select.where = colPos = 2
+    FooterPart1.select.pidInList = 1
+
+    FooterPart2 < lib.content
+    FooterPart2.select.where = colPos = 3
+    FooterPart2.select.pidInList = 1
+
+    FooterPart3 < lib.content
+    FooterPart3.select.where = colPos = 4
+    FooterPart3.select.pidInList = 1
+
+    FooterPart4 < lib.content
+    FooterPart4.select.where = colPos = 5
+    FooterPart4.select.pidInList = 1
+    
+    footerCopyright < lib.content
+    footerCopyright.select.where  = colPos = 6
+    footerCopyright.select.pidInList = 1
+
+    contact < lib.content
+    contact.select.where  = colPos = 1
+
+}

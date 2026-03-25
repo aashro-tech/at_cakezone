@@ -1,0 +1,24 @@
+name: cakezone/special-combo-section
+typeName: cakezone_specialcombosection
+group: default
+prefixFields: false
+fields:
+  - identifier: section-title
+    type: Textarea
+    label: 'Section Title'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: description
+    type: Textarea
+    label: 'Section Description'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: background_image
+    type: File
+    label: 'Background Image'
+    extendedPalette: false
+    minitems: 1
+    maxitems: 1
+    allowed: common-image-types

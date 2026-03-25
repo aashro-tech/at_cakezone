@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{data.services} || {data.description}">
+
+    <f:if condition="{data.pid} == 0 || {data.pid} == 1">
+        <f:then>
+            <div class="container-fluid service position-relative px-5 mt-5 mb-135"
+        style="--bg-image: url('{f:uri.image(image: data.background_image.0, maxWidth: 1915)}');"> 
+        </f:then>
+        <f:else>
+            <div class="container-fluid service position-relative px-5"
+        style="--bg-image: url('{f:uri.image(image: data.background_image.0, maxWidth: 1915)}'); margin-top: 90px;"> 
+        </f:else>
+    </f:if>
+
+        <div class="container">
+            <div class="row g-5">
+
+                <f:if condition="{data.services}">
+                    <f:for each="{data.services}" as="services">
+
+                        <f:if condition="{services.service_text}">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="bg-primary border-inner text-center text-white p-5">
+
+                                    <f:if condition="{services.icon.0}">
+                                        <f:image image="{services.icon.0}" width="32" height="32" />
+                                    </f:if>
+                                    <f:if condition="{services.service_text}">
+                                        <f:format.html>{services.service_text}</f:format.html>
+                                    </f:if>
+
+                                </div>
+                            </div>
+                        </f:if>
+
+                    </f:for>
+                </f:if>
+
+                <f:if condition="{data.description}">
+                    <div class="col-lg-12 text-center">
+                        <f:format.html>{data.description}</f:format.html>
+                    </div>
+                </f:if>
+
+            </div>
+        </div>
+
+    </div>
+
+</f:if>
+</html>

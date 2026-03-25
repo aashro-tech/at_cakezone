@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="plaintext"
+          original="labels.xlf"
+          source-language="en"
+          date="2026-02-23T00:00:00+00:00"
+          product-name="cakezone/about-us">
+        <header/>
+        <body>
+            <trans-unit id="title">
+                <source>CakeZone – About Us Content Element</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Displays an About Us section with title, subtitle, description text, and optional image for the CakeZone website.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

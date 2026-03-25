@@ -1,0 +1,42 @@
+name: cakezone/about-us
+typeName: cakezone_aboutus
+group: default
+prefixFields: false
+fields:
+  - identifier: section-title
+    type: Textarea
+    label: 'Section Title'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: image
+    type: File
+    label: 'About Image'
+    extendedPalette: false
+    minitems: 1
+    maxitems: 1
+    allowed: common-image-types
+
+  - identifier: description
+    type: Textarea
+    label: 'Description'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: collection
+    type: Collection
+    label: 'Additional Details'
+    fields:
+      - identifier: icon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Icon'
+
+      - identifier: details
+        type: Textarea
+        label: 'Detail Text'
+        enableRichtext: true
+        richtextConfiguration: default

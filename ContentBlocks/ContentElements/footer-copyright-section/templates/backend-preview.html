@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:asset.css identifier="identifier123">
+.container-fluid .text-secondary .py-4{
+        pointer-events: none;
+    }
+</f:asset.css>
+
+<f:if condition="{data.description}">
+    <div class="container-fluid text-secondary py-4" style="background: #111111;">
+        <div class="container text-center">
+            {data.description -> f:format.raw()}
+        </div>
+    </div>
+</f:if>
+
+</html>

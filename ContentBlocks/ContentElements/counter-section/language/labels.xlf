@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="plaintext"
+          original="labels.xlf"
+          source-language="en"
+          date="2026-02-23T00:00:00+00:00"
+          product-name="cakezone/counter-section">
+        <header/>
+        <body>
+            <trans-unit id="title">
+                <source>CakeZone – Counter Section Content Element</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Displays an animated counter section with numeric statistics, titles, and optional icons to highlight achievements or key metrics in the CakeZone layout.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

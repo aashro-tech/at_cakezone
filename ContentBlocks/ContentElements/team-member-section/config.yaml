@@ -1,0 +1,48 @@
+name: cakezone/team-member-section
+typeName: cakezone_teammembersection
+group: default
+prefixFields: false
+fields:
+  - identifier: section-title
+    type: Textarea
+    label: 'Section Title'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: profile_picture
+    type: Collection
+    label: 'Team Members'
+    fields:
+      - identifier: image
+        type: File
+        label: 'Profile Image'
+        extendedPalette: false
+        minitems: 1
+        maxitems: 1
+        allowed: common-image-types
+
+      - identifier: details
+        type: Textarea
+        label: 'Member Details'
+        enableRichtext: true
+        richtextConfiguration: default
+
+      - identifier: social_media
+        type: Collection
+        label: 'Social Media Links'
+        fields:
+          - identifier: palette_1
+            type: Palette
+            label: 'Social Media Item'
+            fields:
+              - identifier: media_icon
+                type: File
+                extendedPalette: false
+                minitems: 0
+                maxitems: 1
+                allowed: common-image-types
+                label: 'Social Media Icon'
+
+              - identifier: social_media_link
+                type: Link
+                label: 'Social Media URL'

@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<div class="container-fluid px-0 d-none d-lg-block">
+    <div class="row gx-0">
+
+        <div class="col-lg-4 text-center bg-secondary py-3">
+            <div class="d-inline-flex align-items-center justify-content-center">
+
+                <f:if condition="{data.emailicon.0}">
+                    <f:image image="{data.emailicon.0}" width="40" height="60" class="me-3"/>
+                </f:if>
+
+                <div class="text-start">
+                    <h6 class="text-uppercase mb-1">Email Us</h6>
+
+                    <f:if condition="{data.email_id}">
+                        <span>
+                            <f:link.email email="{data.email_id}">
+                                {data.email_id}
+                            </f:link.email>
+                        </span>
+                    </f:if>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 text-center bg-primary border-inner py-3">
+            <div class="d-inline-flex align-items-center justify-content-center">
+
+                <f:if condition="{data.heading_link} && {data.heading_label}">
+                    <f:link.typolink parameter="{data.heading_link}" class="navbar-brand">
+                        <h1 class="m-0 text-uppercase text-white">
+
+                            <f:if condition="{data.headingicon.0}">
+                                <f:image image="{data.headingicon.0}" width="35" height="40" class="me-3" />
+                            </f:if>
+                            {data.heading_label}
+
+                        </h1>
+                    </f:link.typolink>
+                </f:if>
+
+            </div>
+        </div>
+
+        <div class="col-lg-4 text-center bg-secondary py-3">
+            <div class="d-inline-flex align-items-center justify-content-center">
+
+                <f:if condition="{data.contacticon.0}">
+                    <f:image image="{data.contacticon.0}" width="40" height="60" class="me-3" />
+                </f:if>
+
+                <div class="text-start">
+                    <h6 class="text-uppercase mb-1">Call Us</h6>
+
+                    <f:if condition="{data.contact_label}">
+                        <span>{data.contact_label}</span>
+                    </f:if>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</html>

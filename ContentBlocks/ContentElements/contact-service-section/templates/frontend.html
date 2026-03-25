@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.service}">
+    <div class="row g-5 mb-5">
+
+        <f:for each="{data.service}" as="services">
+
+            <f:if condition="{services.service_text}">
+                <div class="col-lg-4 col-md-6">
+                    <div class="bg-primary border-inner text-center text-white p-5">
+
+                        <f:if condition="{services.icon.0}">
+                            <f:image image="{services.icon.0}" width="40" height="55" />
+                        </f:if>
+
+                        <f:if condition="{services.service_text}">
+                            <f:format.html>{services.service_text}</f:format.html>
+                        </f:if>
+
+                    </div>
+                </div>
+            </f:if>
+
+        </f:for>
+
+    </div>
+</f:if>
+
+</html>

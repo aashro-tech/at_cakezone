@@ -1,0 +1,10 @@
+name: cakezone/footer-copyright-section
+typeName: cakezone_footercopyrightsection
+group: default
+prefixFields: false
+fields:
+  - identifier: description
+    type: Textarea
+    label: 'Copyright Text'
+    enableRichtext: true
+    richtextConfiguration: default

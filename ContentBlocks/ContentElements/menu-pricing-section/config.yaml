@@ -1,0 +1,40 @@
+name: cakezone/menu-pricing-section
+typeName: cakezone_menupricingsection
+group: default
+prefixFields: false
+fields:
+  - identifier: section-title
+    type: Textarea
+    label: 'Section Title'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: category_section
+    type: Collection
+    label: 'Menu Categories'
+    fields:
+      - identifier: category
+        type: Text
+        label: 'Category Name'
+        
+      - identifier: item_section
+        type: Collection
+        label: 'Menu Items'
+        fields:
+          - identifier: image
+            type: File
+            label: 'Item Image'
+            extendedPalette: false
+            minitems: 1
+            maxitems: 1
+            allowed: common-image-types
+
+          - identifier: price
+            type: Text
+            label: 'Item Price'
+
+          - identifier: details
+            type: Textarea
+            label: 'Item Details'
+            enableRichtext: true
+            richtextConfiguration: default

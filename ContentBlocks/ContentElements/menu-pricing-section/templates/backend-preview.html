@@ -1,0 +1,99 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:asset.css identifier="c{uid}">
+.container a{
+    pointer-events: none;
+}
+</f:asset.css>
+<div class="container-fluid about py-5">
+    <div class="container">
+
+        <f:if condition="{data.section-title}">
+            <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+                {data.section-title -> f:format.raw()}
+            </div>
+        </f:if>
+        <f:if condition="{data.category_section}">
+            <div class="tab-class text-center">
+
+                <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
+                    <f:for each="{data.category_section}" as="category_section" iteration="iterator">
+
+                        <f:if condition="{category_section.category}">
+                            <li class="nav-item">
+                                <a class="nav-link text-white {f:if(condition: iterator.isFirst, then: 'active')}"
+                                   data-bs-toggle="pill"
+                                   href="#{category_section.category -> f:replace(search:' ', replace:'')}">
+                                    {category_section.category}
+                                </a>
+                            </li>
+                        </f:if>
+
+                    </f:for>
+                </ul>
+
+                <div class="tab-content">
+                    <f:for each="{data.category_section}" as="category_section" iteration="iterator">
+
+                        <f:if condition="{category_section.category}">
+                            <div id="{category_section.category -> f:replace(search:' ', replace:'')}"
+                                 class="tab-pane fade show p-0 {f:if(condition: iterator.isFirst, then: 'active')}">
+
+                                <div class="row g-3">
+
+                                    <f:if condition="{category_section.item_section}">
+                                        <f:for each="{category_section.item_section}" as="item_section">
+
+                                            <f:if condition="{item_section.image.0} || {item_section.details} || {item_section.price}">
+
+                                                <div class="col-lg-6">
+                                                    <div class="d-flex h-100">
+
+                                                        <div class="flex-shrink-0">
+
+                                                            <f:if condition="{item_section.image.0}">
+                                                                <f:image class="img-fluid"
+                                                                     image="{item_section.image.0}"
+                                                                     alt=""
+                                                                     maxWidth="145"
+                                                                      />
+                                                            </f:if>
+
+                                                            <f:if condition="{item_section.price}">
+                                                                <h4 class="bg-dark text-primary p-2 m-0">
+                                                                    {item_section.price}
+                                                                </h4>
+                                                            </f:if>
+
+                                                        </div>
+
+                                                        <f:if condition="{item_section.details}">
+                                                            <div class="d-flex flex-column justify-content-center text-start bg-secondary border-inner px-4">
+                                                                <f:format.raw>{item_section.details}</f:format.raw>
+                                                            </div>
+                                                        </f:if>
+
+                                                    </div>
+                                                </div>
+
+                                            </f:if>
+
+                                        </f:for>
+                                    </f:if>
+
+                                </div>
+                            </div>
+                        </f:if>
+
+                    </f:for>
+                </div>
+
+            </div>
+        </f:if>
+
+    </div>
+</div>
+
+</html>

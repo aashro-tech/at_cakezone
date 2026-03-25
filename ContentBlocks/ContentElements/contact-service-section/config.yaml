@@ -1,0 +1,22 @@
+name: cakezone/contact-service-section
+typeName: cakezone_contactservicesection
+group: default
+prefixFields: false
+fields:
+  - identifier: service
+    type: Collection
+    label: 'Service Items'
+    fields:
+      - identifier: icon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Icon'
+        
+      - identifier: service_text
+        type: Textarea
+        label: 'Service Description'
+        enableRichtext: true
+        richtextConfiguration: default

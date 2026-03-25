@@ -1,0 +1,30 @@
+name: cakezone/footer-cakezone-section
+typeName: cakezone_footercakezonesection
+group: default
+prefixFields: false
+fields:
+  - identifier: heading_palette
+    type: Palette
+    label: 'Heading'
+    fields:
+      - identifier: icon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Icon'
+
+      - identifier: title
+        type: Text
+        label: 'Title'
+
+      - identifier: url
+        type: Link
+        label: 'Link URL'
+
+  - identifier: details
+    type: Textarea
+    label: 'Description'
+    enableRichtext: true
+    richtextConfiguration: default

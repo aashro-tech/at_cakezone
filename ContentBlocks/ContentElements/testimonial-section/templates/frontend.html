@@ -1,0 +1,57 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{data.section-title} || {data.testmonial_item}">
+
+    <div class="container-fluid py-5">
+        <div class="container">
+
+            <f:if condition="{data.section-title}">
+                <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+                    {data.section-title -> f:format.html()}
+                </div>
+            </f:if>
+
+            <f:if condition="{data.testmonial_item}">
+                <div class="owl-carousel testimonial-carousel">
+
+                    <f:for each="{data.testmonial_item}" as="data_item">
+
+                        <f:if condition="{data_item.details} || {data_item.client_details} || {data_item.image.0}">
+                            <div class="testimonial-item bg-dark text-white border-inner p-4">
+
+                                <div class="d-flex align-items-center mb-3">
+
+                                    <f:if condition="{data_item.image.0}">
+                                        <f:image image="{data_item.image.0}"
+                                            class="img-fluid flex-shrink-0"
+                                            maxWidth="61"
+                                            style="width: 60px; height: 60px;" />
+                                    </f:if>
+
+                                    <f:if condition="{data_item.client_details}">
+                                        <div class="ps-3">
+                                            {data_item.client_details -> f:format.html()}
+                                        </div>
+                                    </f:if>
+
+                                </div>
+
+                                <f:if condition="{data_item.details}">
+                                    {data_item.details -> f:format.html()}
+                                </f:if>
+
+                            </div>
+                        </f:if>
+
+                    </f:for>
+
+                </div>
+            </f:if>
+
+        </div>
+    </div>
+
+</f:if>
+</html>

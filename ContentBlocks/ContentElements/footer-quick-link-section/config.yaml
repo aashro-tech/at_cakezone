@@ -1,0 +1,25 @@
+name: cakezone/footer-quick-link-section
+typeName: cakezone_footerquicklinksection
+group: default
+prefixFields: false
+
+fields:
+  - identifier: title
+    type: Text
+    label: 'Section Title'
+
+  - identifier: quick_details
+    type: Collection
+    label: 'Quick Link Items'
+    fields:
+      - identifier: palette_1
+        type: Palette
+        label: 'Quick Link'
+        fields:
+          - identifier: menus
+            type: Text
+            label: 'Link Text'
+
+          - identifier: link
+            type: Link
+            label: 'Link URL'

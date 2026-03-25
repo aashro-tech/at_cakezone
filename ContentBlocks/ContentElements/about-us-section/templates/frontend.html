@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div class="container-fluid pt-5">
+    <div class="container">
+        
+        <f:if condition="{data.section-title}">
+            <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+                {data.section-title -> f:format.html()}
+            </div>
+        </f:if>
+        
+        <f:if condition="{data.image.0} || {data.description} || {data.collection}">
+            <div class="row gx-5">
+                
+                <f:if condition="{data.image.0}">
+                    <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <f:image image="{data.image.0}"
+                                class="position-absolute w-100 h-100"
+                                alt=""
+                                maxWidth="511"
+                                style="object-fit: cover;" />
+                        </div>
+                    </div>
+                </f:if>
+                
+                <f:if condition="{data.description} || {data.collection}">
+                    <div class="col-lg-6 pb-5">
+                        
+                        <f:if condition="{data.description}">
+                            {data.description -> f:format.html()}
+                        </f:if>
+                        
+                        <f:if condition="{data.collection}">
+                            <div class="row g-5">
+                                <f:for each="{data.collection}" as="item">
+                                    
+                                    <f:if condition="{item.details}">
+                                        <div class="col-sm-6">
+                                           <f:if condition="{item.icon.0}">
+                                                <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4"
+                                                     style="width: 90px; height: 90px;">
+                                                    <f:image image="{item.icon.0}" width="32" height="32" />
+                                                </div>
+                                            </f:if>
+                                            
+                                            <f:if condition="{item.details}">
+                                                <f:format.html>{item.details}</f:format.html>
+                                            </f:if>
+
+                                        </div>
+                                    </f:if>
+
+                                </f:for>
+                            </div>
+                        </f:if>
+
+                    </div>
+                </f:if>
+
+            </div>
+        </f:if>
+
+    </div>
+</div>
+</html>

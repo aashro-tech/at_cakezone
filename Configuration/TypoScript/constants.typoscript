@@ -1,0 +1,28 @@
+########################
+### General Settings ###
+########################
+
+# customsubcategory=100=header
+# customsubcategory=110=menu
+# customsubcategory=120=general
+# customsubcategory=200=seo
+at_cakezone {
+    website {
+        settings {
+
+            #cat = at_cakezone/100/03; type=string; label=Favicon Icon
+            favicon = EXT:at_cakezone/Resources/Public/images/Favicon/logo.png
+
+            #cat = at_cakezone/110/04; type=int; label=Main Menu Id
+            main_menu = 1
+            
+        }
+
+        # Define paths for templates, layout and partial
+        paths {
+            templateRootPath = EXT:at_cakezone/Resources/Private/Templates/
+            layoutRootPath = EXT:at_cakezone/Resources/Private/Layouts/
+            partialRootPath = EXT:at_cakezone/Resources/Private/Partials/
+        }
+    }
+}

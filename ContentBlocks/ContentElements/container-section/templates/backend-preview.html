@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:asset.css identifier="c{uid}">
+.container a{
+    pointer-events: none;
+}
+.text-primary{
+    color: #E88F2A !important;
+}
+.btn.btn-primary.border-inner.py-3.px-5.me-5 {
+  background: #E88F2A;
+  font-weight: bold;
+}
+.btn-play {
+  position: relative;
+  display: block;
+  box-sizing: content-box;
+  width: 16px;
+  height: 26px;
+  border-radius: 100%;
+  border: none;
+  outline: none !important;
+  padding: 18px 20px 20px 28px;
+  background: #FFFFFF;
+}
+.btn-play::after {
+  content: "\25BA";
+  color: #E88F2A;
+  font-size: 30px;
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: #FFFFFF;
+  border-radius: 100%;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+.btn-play::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: #FFFFFF;
+  border-radius: 100%;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+</f:asset.css>
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header"
+     style="background-image: url('{f:uri.image(image: data.image.0, maxWidth: 1915)}');">
+
+    <div class="container py-5">
+        <div class="row justify-content-start">
+            <div class="col-lg-8 text-center text-lg-start">
+
+                <f:if condition="{data.textarea}">
+                    {data.textarea -> f:format.raw()}
+                </f:if>
+
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+
+                    <f:if condition="{data.url-link}">
+                        <f:link.typolink parameter="{data.url-link}"
+                            class="btn btn-primary border-inner py-3 px-5 me-5">
+
+                            <f:if condition="{data.text-link}">
+                                {data.text-link}
+                            </f:if>
+
+                        </f:link.typolink>
+                    </f:if>
+
+                    <f:if condition="{data.url_video}">
+                        <button type="button"
+                                class="btn-play"
+                                data-bs-toggle="modal"
+                                data-src="{f:uri.typolink(parameter: data.url_video)}"
+                                data-bs-target="#videoModal"
+                                disabled>
+                            <span></span>
+                        </button>
+                    </f:if>
+
+                    <f:if condition="{data.text-video}">
+                        <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">
+                            {data.text-video}
+                        </h5>
+                    </f:if>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<f:if condition="{data.url_video}">
+    <div class="modal fade" id="videoModal" tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         role="dialog">
+
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Youtube Video</h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item"
+                                src="{f:uri.typolink(parameter:data.url_video)}?autoplay=1&amp;modestbranding=1&amp;showinfo=0"
+                                allowfullscreen
+                                allow="autoplay">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</f:if>
+
+</html>

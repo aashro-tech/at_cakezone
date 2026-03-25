@@ -1,0 +1,36 @@
+name: cakezone/service-section
+typeName: cakezone_servicesection
+group: default
+prefixFields: false
+fields:
+  - identifier: services
+    type: Collection
+    label: 'Service Items'
+    fields:
+      - identifier: icon
+        type: File
+        extendedPalette: false
+        minitems: 0
+        maxitems: 1
+        allowed: common-image-types
+        label: 'Icon'
+        
+      - identifier: service_text
+        type: Textarea
+        label: 'Service Description'
+        enableRichtext: true
+        richtextConfiguration: default
+
+  - identifier: description
+    type: Textarea
+    label: 'Section Description'
+    enableRichtext: true
+    richtextConfiguration: default
+
+  - identifier: background_image
+    type: File
+    label: 'Background Image'
+    extendedPalette: false
+    minitems: 1
+    maxitems: 1
+    allowed: common-image-types

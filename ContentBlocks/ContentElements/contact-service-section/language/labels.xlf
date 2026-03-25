@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file datatype="plaintext"
+          original="labels.xlf"
+          source-language="en"
+          date="2026-02-23T00:00:00+00:00"
+          product-name="cakezone/contact-service-section">
+        <header/>
+        <body>
+            <trans-unit id="title">
+                <source>CakeZone – Contact Service Section Content Element</source>
+            </trans-unit>
+            <trans-unit id="description">
+                <source>Displays a service section showcasing CakeZone offerings with service title, description, icon or image, and optional call-to-action button.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

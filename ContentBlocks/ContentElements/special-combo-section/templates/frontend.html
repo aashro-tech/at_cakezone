@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+    xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+    xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+    
+<f:if condition="{data.section-title} || {data.description}">
+
+<div class="container-fluid bg-offer my-5 py-5"
+        style="background:
+            linear-gradient(rgba(43,40,37,.9), rgba(43,40,37,.9)),
+            url('{f:uri.image(image:data.background_image.0, maxWidth: 1915)}') center center no-repeat;
+            background-size: cover;">
+   
+    <div class="container py-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-7 text-center">
+
+                <f:if condition="{data.section-title}">
+                    <div class="section-title position-relative text-center mx-auto mb-4 pb-3" style="max-width: 600px;">
+                        {data.section-title -> f:format.html()}
+                    </div>
+                </f:if>
+
+                <f:if condition="{data.description}">
+                    {data.description -> f:format.html()}
+                </f:if>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</f:if>
+
+</html>

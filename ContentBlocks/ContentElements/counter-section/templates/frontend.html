@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="https://viewhelpers.fluidtypo3.org/typo3/cms-fluid/9.3.2/schema.xsd"
+      xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<f:if condition="{data.collection}">
+    <div class="container-fluid bg-img py-5 mb-5">
+
+        <div class="container py-5">
+
+            <div class="row gx-5 gy-4">
+
+                <f:for each="{data.collection}" as="item">
+
+                    <f:if condition="{item.details} || {item.fa_icon}">
+                        <div class="col-lg-3 col-md-6">
+
+                            <div class="d-flex">
+
+                                <f:if condition="{item.icon.0}">
+                                    <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3"
+                                         style="width:60px;height:60px;">
+                                        <f:image image="{item.icon.0}" width="18" height="18" />
+                                    </div>
+                                </f:if>
+
+                                <f:if condition="{item.details}">
+                                    <div class="ps-4">
+                                        <f:format.html>{item.details}</f:format.html>
+                                    </div>
+                                </f:if>
+
+                            </div>
+
+                        </div>
+                    </f:if>
+
+                </f:for>
+
+            </div>
+
+        </div>
+    </div>
+</f:if>
+
+</html>

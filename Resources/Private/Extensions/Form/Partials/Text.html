@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<formvh:renderRenderable renderable="{element}">
+
+    <div class="{f:if(condition: '{element.identifier} == text-1', then: 'col-sm-6', else: 'col-sm-12')}">
+        <f:form.textfield
+        property="{element.identifier}"
+        id="{element.uniqueIdentifier}"
+        class="form-control bg-light border-0 px-4"
+        errorClass="{element.properties.elementErrorClassAttribute}"
+        additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}" style="height: 55px;" />
+    </div>
+    
+</formvh:renderRenderable>
+</html>
