@@ -1,7 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
-
 <formvh:renderRenderable renderable="{element}">
-
     <f:if condition="{element.rootForm.identifier} == 'form-45' ">
         <f:then>
             
@@ -9,7 +7,7 @@
                 type="email"
                 property="{element.identifier}"
                 id="{element.uniqueIdentifier}"
-                class="form-control border-white p-3"
+                class="form-control dharmik border-white p-3"
                 errorClass="{element.properties.elementErrorClassAttribute}"
                 additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"
                 style="height: 58px;" />

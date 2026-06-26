@@ -3,6 +3,13 @@
     xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
+<f:layout name="Preview" />
+<f:section name="Content">
+    <f:asset.css identifier="c{uid}">
+.container-fluid a{
+    pointer-events: none;
+}
+</f:asset.css>
 <div class="container-fluid px-0 d-none d-lg-block">
     <div class="row gx-0">
 
@@ -18,9 +25,9 @@
 
                     <f:if condition="{data.email_id}">
                         <span>
-                            <f:link.email email="{data.email_id}">
+                           
                                 {data.email_id}
-                            </f:link.email>
+                            
                         </span>
                     </f:if>
 
@@ -32,7 +39,7 @@
             <div class="d-inline-flex align-items-center justify-content-center">
 
                 <f:if condition="{data.heading_link} && {data.heading_label}">
-                    <f:link.typolink parameter="{data.heading_link}" class="navbar-brand">
+                    
                         <h1 class="m-0 text-uppercase text-white">
 
                             <f:if condition="{data.headingicon.0}">
@@ -41,7 +48,7 @@
                             {data.heading_label}
 
                         </h1>
-                    </f:link.typolink>
+                        
                 </f:if>
 
             </div>
@@ -67,5 +74,5 @@
 
     </div>
 </div>
-
+</f:section>
 </html>

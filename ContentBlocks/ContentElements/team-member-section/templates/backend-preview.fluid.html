@@ -2,6 +2,48 @@
       xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
+
+<f:layout name="Preview" />
+<f:section name="Content">
+<f:asset.css identifier="c{uid}">
+.position-relative {
+  position: relative !important;
+}
+.overflow-hidden {
+  overflow: hidden !important;
+}
+.team-item .team-overlay {
+  transition: .5s;
+  opacity: 0;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.h-100 {
+  height: 100% !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+.translate-middle {
+  transform: translate(-50%, -50%) !important;
+}
+.start-50 {
+  left: 50% !important;
+}
+.top-50 {
+  top: 50% !important;
+}
+.position-absolute {
+  position: absolute !important;
+}
+.d-flex {
+  display: flex !important;
+}
+</f:asset.css>
 <f:if condition="{data.section-title} || {data.profile_picture}">
 
     <div class="container-fluid py-5">
@@ -78,5 +120,6 @@
     </div>
 
 </f:if>
+</f:section>
 
 </html>

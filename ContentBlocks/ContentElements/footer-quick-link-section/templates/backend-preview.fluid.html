@@ -1,9 +1,12 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
       data-namespace-typo3-fluid="true">
-      
+
+<f:layout name="Preview" />
+<f:section name="Footer">
+
 <f:asset.css identifier="identifier3">
-    .element-preview-content a{
+    .t3-page-ce-info a{
         pointer-events: none;
     }
 </f:asset.css>
@@ -32,5 +35,5 @@
         </f:if>
 
     </div>
-
+</f:section>
 </html>

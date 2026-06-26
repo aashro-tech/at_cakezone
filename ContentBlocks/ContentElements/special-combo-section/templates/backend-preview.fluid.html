@@ -3,6 +3,19 @@
     xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers"
     data-namespace-typo3-fluid="true">
 
+
+<f:layout name="Preview" />
+<f:section name="Content">
+<f:asset.css identifier="c{uid}">
+.container-fluid a{
+    pointer-events: none;
+}
+.btn-dark {
+  color: #fff;
+  background-color: #2B2825;
+  border-color: #2B2825;
+}
+</f:asset.css>
 <f:if condition="{data.section-title} || {data.description}">
 
 <div class="container-fluid bg-offer my-5 py-5"
@@ -32,5 +45,5 @@
 </div>
 
 </f:if>
-
+</f:section>
 </html>

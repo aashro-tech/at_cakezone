@@ -6,7 +6,6 @@ use Symfony\Component\Finder\Finder;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Configuration\SiteConfiguration;
 use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Package\Event\PackageInitializationEvent;
 use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -63,18 +62,8 @@ class PackageActivationListener
             }
         }
 
-        // Import static data if pages do not exist
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
-        $count = $queryBuilder->count('uid')->from('pages')->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter(1)))->executeQuery()->fetchOne();
-
-        if ($count == 0) {
-            $sqlFile = $package->getPackagePath() . 'ext_tables_static+adt.sql';
-            if (file_exists($sqlFile)) {
-                $sql = file_get_contents($sqlFile);
-                $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
-                $connection->executeStatement($sql);
-            }
-        }
+        // Static demo data is imported by TYPO3 core via ext_tables_static+adt.sql
+        // (ImportStaticSqlDataOnPackageInitialization).
 
         // Copy initial files to fileadmin
         $filesSource = $package->getPackagePath() . 'Initialisation/Files';
@@ -85,4 +74,4 @@ class PackageActivationListener
             $this->registry->set('filesImported', 'at_cakezone', 1);
         }
     }
-}
+} 

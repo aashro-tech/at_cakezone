@@ -1,0 +1,5 @@
+name: aashro/at-cakezone
+label: 'AT Cakezone Site Package'
+
+dependencies:
+  - typo3/fluid-styled-content

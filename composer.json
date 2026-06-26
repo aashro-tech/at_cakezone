@@ -12,8 +12,8 @@
     ],
     "license": "GPL-2.0-or-later",
     "require": {
-        "typo3/cms-core": "^13.4",
-        "friendsoftypo3/content-blocks": "^1.0.0"
+        "typo3/cms-core": "^14.3",
+        "friendsoftypo3/content-blocks": "^2.4"
     },
     "autoload": {
         "psr-4": {

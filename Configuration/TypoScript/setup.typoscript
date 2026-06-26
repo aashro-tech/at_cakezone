@@ -1,5 +1,2 @@
-# Includes EXT:Form Configuration
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:at_cakezone/Configuration/TypoScript/Extensions/Form/" extensions="typoscript">
+@import 'EXT:at_cakezone/Configuration/Sets/AtCakezone/Page/page.typoscript'
 
-# Includes Page Configuration
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:at_cakezone/Configuration/TypoScript/Page" extensions="typoscript">

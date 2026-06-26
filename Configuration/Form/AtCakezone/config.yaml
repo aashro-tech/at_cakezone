@@ -1,0 +1,17 @@
+name: 'aashro/at-cakezone'
+label: 'My Custom Forms'
+priority: 100
+persistenceManager:
+  allowedExtensionPaths:
+    100: 'EXT:at_cakezone/Resources/Private/Forms/'
+prototypes:
+  standard:
+    formElementsDefinition:
+      Form:
+        renderingOptions:
+          templateRootPaths:
+            20: 'EXT:at_cakezone/Resources/Private/Extensions/Form/Templates/'
+          partialRootPaths:
+            20: 'EXT:at_cakezone/Resources/Private/Extensions/Form/Partials/'
+          layoutRootPaths:
+            20: 'EXT:at_cakezone/Resources/Private/Extensions/Form/Layouts/'

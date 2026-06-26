@@ -1,7 +1,18 @@
-<f:variable name="marginTop">{data.footer_margin}</f:variable>
+
+<f:variable name="marginTop">
+    <f:if condition="{data.pid} == 0 || {data.uid} == 1 || {data.uid} == 6 || {data.uid} == 11">
+        <f:then>90px</f:then>
+        <f:else>
+            <f:if condition="{data.uid} == 8 || {data.uid} == 10">
+                <f:then>235px</f:then>
+                <f:else>135px</f:else>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:variable>
 
 <div class="container-fluid bg-img text-secondary"
-     style="margin-top: {marginTop}px;">
+     style="margin-top: {marginTop};">
     <div class="container">
         <div class="row gx-5">
 			<f:if condition="{data.pid} == 0"><f:then><div class="col-lg-4 col-md-6 mb-lg-n5"></f:then><f:else><div class="col-lg-4 col-md-6 mt-lg-n5"></f:else></f:if>
